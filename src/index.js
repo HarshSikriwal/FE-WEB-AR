@@ -30,7 +30,7 @@ const camera = new THREE.PerspectiveCamera(
 );
 
 scene.add(camera);
-const controls = new OrbitControls(camera, canvas);
+// const controls = new OrbitControls(camera, canvas);
 controls.enableDamping = true;
 
 // Create a raycaster for detecting tap positions
@@ -45,12 +45,12 @@ const planeMaterial = new THREE.MeshBasicMaterial({
   color: "red",
   side: THREE.DoubleSide,
   transparent: true,
-  opacity: 0.5,
+  opacity: 0,
 });
 const plane = new THREE.Mesh(planeGeometry, planeMaterial);
 
 // Set plane rotation to be floor-like (-90 degrees around X axis)
-plane.rotation.x = (Math.PI * 85) / 180;
+plane.rotation.x = (Math.PI * 75) / 180;
 
 // Position the plane at the bottom of the view
 // Camera is at z=5, we want the plane to be on the ground
@@ -59,17 +59,17 @@ plane.position.z = 0; // Directly in front of the camera
 
 scene.add(plane);
 
-gui.add(plane.rotation, "x").min(-3).max(3).step(0.01).name("rotationX");
-gui.add(plane.rotation, "y").min(-3).max(3).step(0.01).name("rotationY");
-gui.add(plane.rotation, "z").min(-3).max(3).step(0.01).name("rotationZ");
+// gui.add(plane.rotation, "x").min(-3).max(3).step(0.01).name("rotationX");
+// gui.add(plane.rotation, "y").min(-3).max(3).step(0.01).name("rotationY");
+// gui.add(plane.rotation, "z").min(-3).max(3).step(0.01).name("rotationZ");
 
-gui.add(plane.position, "x").min(-10).max(10).step(0.01).name("positionX");
-gui.add(plane.position, "y").min(-10).max(10).step(0.01).name("positionY");
-gui.add(plane.position, "z").min(-10).max(10).step(0.01).name("positionZ");
+// gui.add(plane.position, "x").min(-10).max(10).step(0.01).name("positionX");
+// gui.add(plane.position, "y").min(-10).max(10).step(0.01).name("positionY");
+// gui.add(plane.position, "z").min(-10).max(10).step(0.01).name("positionZ");
 
-gui.add(plane.scale, "x").min(0.1).max(20).step(0.01).name("scaleX");
-gui.add(plane.scale, "y").min(0.1).max(20).step(0.01).name("scaleY");
-gui.add(plane.scale, "z").min(0.1).max(20).step(0.01).name("scaleZ");
+// gui.add(plane.scale, "x").min(0.1).max(20).step(0.01).name("scaleX");
+// gui.add(plane.scale, "y").min(0.1).max(20).step(0.01).name("scaleY");
+// gui.add(plane.scale, "z").min(0.1).max(20).step(0.01).name("scaleZ");
 
 const axesHelper = new THREE.AxesHelper(5);
 scene.add(axesHelper);
@@ -94,7 +94,7 @@ renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 function createCube(position, distance) {
   // Calculate size based on distance (further = smaller)
   // Map distance from 0-15 to size 1-0.2
-  const size = Math.max(0.2, 1 - distance / 20);
+  const size = Math.max(0.2, 1.5 - distance / 20);
 
   const geometry = new THREE.BoxGeometry(size, size, size);
   const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
@@ -106,7 +106,7 @@ function createCube(position, distance) {
   // Position the cube directly on top of the floor plane
   // Since the plane is at y=-3.8 and has rotation.x = -Math.PI/2,
   // we need to place cubes at y=-3.8 + height/2
-  cube.position.y = -3.8 + size / 2;
+  cube.position.y = -3.8 + size;
 
   scene.add(cube);
 
