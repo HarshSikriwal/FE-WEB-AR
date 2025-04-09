@@ -11,6 +11,12 @@ dependencies:
   aframe:
     specifier: 1.7.0
     version: 1.7.0
+  lil-gui:
+    specifier: ^0.20.0
+    version: 0.20.0
+  three:
+    specifier: ^0.175.0
+    version: 0.175.0
 
 devDependencies:
   autoprefixer:
@@ -1217,6 +1223,10 @@ packages:
       xtend: 4.0.2
     dev: false
 
+  /lil-gui@0.20.0:
+    resolution: {integrity: sha512-k7Ipr0ztqslMA2XvM5z5ZaWhxQtnEOwJBfI/hmSuRh6q4iMG9L0boqqrnZSzBR1jzyJ28OMl47l65ILzRe1TdA==}
+    dev: false
+
   /lilconfig@3.1.3:
     resolution: {integrity: sha512-/vlFKAoH5Cgt3Ie+JLhRbwOsCQePABiU3tJ1egGvyQ+33R/vcwM2Zl2QR/LzjsBeItPt3oSVXapn+m4nQDvpzw==}
     engines: {node: '>=14'}
@@ -1778,6 +1788,10 @@ packages:
 
   /three@0.164.1:
     resolution: {integrity: sha512-iC/hUBbl1vzFny7f5GtqzVXYjMJKaTPxiCxXfrvVdBi1Sf+jhd1CAkitiFwC7mIBFCo3MrDLJG97yisoaWig0w==}
+    dev: false
+
+  /three@0.175.0:
+    resolution: {integrity: sha512-nNE3pnTHxXN/Phw768u0Grr7W4+rumGg/H6PgeseNJojkJtmeHJfZWi41Gp2mpXl1pg1pf1zjwR4McM1jTqkpg==}
     dev: false
 
   /to-readable-stream@1.0.0:
