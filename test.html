@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Camera Test</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+  <body>
+    <video
+      id="video"
+      autoplay
+      playsinline
+      style="width: 100vw; height: 100vh; object-fit: cover"
+    ></video>
+    <script>
+      async function startCamera() {
+        try {
+          const stream = await navigator.mediaDevices.getUserMedia({
+            video: {
+              facingMode: { exact: "environment" },
+            },
+          });
+          const video = document.getElementById("video");
+          video.srcObject = stream;
+        } catch (err) {
+          console.error("Camera error:", err);
+          alert("Camera error: " + err.message);
+        }
+      }
+      startCamera();
+    </script>
+  </body>
+</html>
