@@ -45,7 +45,7 @@ const planeMaterial = new THREE.MeshBasicMaterial({
   color: "red",
   side: THREE.DoubleSide,
   transparent: true,
-  opacity: 0.2,
+  opacity: 0,
 });
 const plane = new THREE.Mesh(planeGeometry, planeMaterial);
 
