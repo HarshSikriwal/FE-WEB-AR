@@ -38,19 +38,18 @@ const raycaster = new THREE.Raycaster();
 const pointer = new THREE.Vector2();
 
 // Create floor plane at the bottom of the screen
-const planeWidth = 1000; // Make it wider to fill the screen
-const planeDepth = 1000; // Make it deeper for more play area
+const planeWidth = 5; // Make it wider to fill the screen
+const planeDepth = 5; // Make it deeper for more play area
 const planeGeometry = new THREE.PlaneGeometry(planeWidth, planeDepth);
 const planeMaterial = new THREE.MeshBasicMaterial({
   color: "red",
   side: THREE.DoubleSide,
   transparent: true,
-  opacity: 0,
+  opacity: 0.8,
 });
 const plane = new THREE.Mesh(planeGeometry, planeMaterial);
 
-// Set plane rotation to be floor-like (-90 degrees around X axis)
-plane.rotation.x = (Math.PI * 75) / 180;
+plane.rotation.x = -0.5;
 
 // Position the plane at the bottom of the view
 // Camera is at z=5, we want the plane to be on the ground
@@ -71,8 +70,10 @@ gui.add(plane.scale, "x").min(0.1).max(20).step(0.01).name("scaleX");
 gui.add(plane.scale, "y").min(0.1).max(20).step(0.01).name("scaleY");
 gui.add(plane.scale, "z").min(0.1).max(20).step(0.01).name("scaleZ");
 
-const axesHelper = new THREE.AxesHelper(5);
-scene.add(axesHelper);
+gui.add(plane.material, "opacity").min(0).max(1).step(0.01).name("opacity");
+
+// const axesHelper = new THREE.AxesHelper(5);
+// scene.add(axesHelper);
 
 // Position camera to look down at the floor plane
 camera.position.z = 5;
